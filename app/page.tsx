@@ -1,33 +1,38 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import styles from "./page.module.css";
 
-const goals = [
-  "Real Estate Recruiting: Build a high-performing agent team",
-  "Content & Audience Growth: Grow online presence (TikTok, IG, YouTube)",
-  "Business Development: Expand referral network and partnerships",
-];
+export const dynamic = "force-dynamic";
 
-const tasks = [
-  "Research top real estate recruiting strategies",
-  "Develop a content calendar for TikTok and IG",
-  "Identify potential referral partners in the area",
-  "Create a draft for a YouTube video outline",
-  "Review and organize existing leads in the CRM",
-];
+type ProgressData = {
+  title: string;
+  subtitle: string;
+  goals: string[];
+  tasks: { title: string; done: boolean }[];
+  updatedAt?: string;
+};
 
-export default function Home() {
-  const completed = 0;
-  const total = tasks.length;
+async function loadProgress(): Promise<ProgressData> {
+  const filePath = path.join(process.cwd(), "data", "progress.json");
+  const raw = await fs.readFile(filePath, "utf8");
+  return JSON.parse(raw) as ProgressData;
+}
+
+export default async function Home() {
+  const data = await loadProgress();
+  const completed = data.tasks.filter((t) => t.done).length;
+  const total = data.tasks.length;
 
   return (
     <main className={styles.page}>
       <section className={styles.card}>
-        <h1>Progress Tracker</h1>
-        <p className={styles.sub}>Daily operating dashboard</p>
+        <h1>{data.title}</h1>
+        <p className={styles.sub}>{data.subtitle}</p>
 
         <div className={styles.section}>
           <h2>Goals</h2>
           <ul>
-            {goals.map((goal) => (
+            {data.goals.map((goal) => (
               <li key={goal}>{goal}</li>
             ))}
           </ul>
@@ -36,8 +41,10 @@ export default function Home() {
         <div className={styles.section}>
           <h2>Today&apos;s Tasks</h2>
           <ul>
-            {tasks.map((task) => (
-              <li key={task}>{task}</li>
+            {data.tasks.map((task) => (
+              <li key={task.title}>
+                <span>{task.done ? "✅" : "⬜"}</span> {task.title}
+              </li>
             ))}
           </ul>
         </div>
@@ -45,6 +52,9 @@ export default function Home() {
         <div className={styles.footer}>
           <span>Completed: {completed}</span>
           <span>Remaining: {total - completed}</span>
+          {data.updatedAt ? (
+            <span>Updated: {new Date(data.updatedAt).toLocaleString("en-US")}</span>
+          ) : null}
         </div>
       </section>
     </main>

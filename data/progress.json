@@ -1,0 +1,17 @@
+{
+  "title": "Progress Tracker",
+  "subtitle": "Daily operating dashboard",
+  "goals": [
+    "Real Estate Recruiting: Build a high-performing agent team",
+    "Content & Audience Growth: Grow online presence (TikTok, IG, YouTube)",
+    "Business Development: Expand referral network and partnerships"
+  ],
+  "tasks": [
+    { "title": "Research top real estate recruiting strategies", "done": false },
+    { "title": "Develop a content calendar for TikTok and IG", "done": false },
+    { "title": "Identify potential referral partners in the area", "done": false },
+    { "title": "Create a draft for a YouTube video outline", "done": false },
+    { "title": "Review and organize existing leads in the CRM", "done": false }
+  ],
+  "updatedAt": "2026-03-08T20:17:00Z"
+}
