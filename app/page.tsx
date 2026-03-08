@@ -4,11 +4,18 @@ import styles from "./page.module.css";
 
 export const dynamic = "force-dynamic";
 
+type Task = {
+  title: string;
+  done: boolean;
+  category?: string;
+};
+
 type ProgressData = {
   title: string;
   subtitle: string;
+  updatedBy?: string;
   goals: string[];
-  tasks: { title: string; done: boolean }[];
+  tasks: Task[];
   updatedAt?: string;
 };
 
@@ -18,10 +25,20 @@ async function loadProgress(): Promise<ProgressData> {
   return JSON.parse(raw) as ProgressData;
 }
 
+function groupTasks(tasks: Task[]) {
+  const grouped = new Map<string, Task[]>();
+  for (const task of tasks) {
+    const key = task.category?.trim() || "General";
+    grouped.set(key, [...(grouped.get(key) || []), task]);
+  }
+  return grouped;
+}
+
 export default async function Home() {
   const data = await loadProgress();
   const completed = data.tasks.filter((t) => t.done).length;
   const total = data.tasks.length;
+  const groupedTasks = groupTasks(data.tasks);
 
   return (
     <main className={styles.page}>
@@ -40,18 +57,24 @@ export default async function Home() {
 
         <div className={styles.section}>
           <h2>Today&apos;s Tasks</h2>
-          <ul>
-            {data.tasks.map((task) => (
-              <li key={task.title}>
-                <span>{task.done ? "✅" : "⬜"}</span> {task.title}
-              </li>
-            ))}
-          </ul>
+          {[...groupedTasks.entries()].map(([category, tasks]) => (
+            <div key={category} className={styles.group}>
+              <h3>{category}</h3>
+              <ul>
+                {tasks.map((task) => (
+                  <li key={`${category}-${task.title}`}>
+                    <span>{task.done ? "✅" : "⬜"}</span> {task.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className={styles.footer}>
           <span>Completed: {completed}</span>
           <span>Remaining: {total - completed}</span>
+          {data.updatedBy ? <span>Updated by: {data.updatedBy}</span> : null}
           {data.updatedAt ? (
             <span>Updated: {new Date(data.updatedAt).toLocaleString("en-US")}</span>
           ) : null}
