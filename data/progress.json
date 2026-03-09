@@ -1,18 +1,62 @@
 {
   "title": "Progress Tracker",
   "subtitle": "Daily operating dashboard",
-  "updatedBy": "Alex",
+  "updatedBy": "Kanban Sync",
   "goals": [
     "Real Estate Recruiting: Build a high-performing agent team",
     "Content & Audience Growth: Grow online presence (TikTok, IG, YouTube)",
     "Business Development: Expand referral network and partnerships"
   ],
   "tasks": [
-    { "title": "Research top real estate recruiting strategies", "done": false, "category": "Recruiting" },
-    { "title": "Develop a content calendar for TikTok and IG", "done": false, "category": "Content" },
-    { "title": "Identify potential referral partners in the area", "done": false, "category": "Business Dev" },
-    { "title": "Create a draft for a YouTube video outline", "done": false, "category": "Content" },
-    { "title": "Review and organize existing leads in the CRM", "done": false, "category": "Recruiting" }
+    {
+      "title": "Read goals + context from brain/",
+      "done": true,
+      "category": "Tasks for Today (2026-03-09)"
+    },
+    {
+      "title": "Generate 3-5 high-leverage tasks aligned to goals",
+      "done": true,
+      "category": "Tasks for Today (2026-03-09)"
+    },
+    {
+      "title": "Create recruiting outreach scripts for week-of execution",
+      "done": true,
+      "category": "Tasks for Today (2026-03-09)"
+    },
+    {
+      "title": "Create content sprint plan for TikTok/IG/YouTube",
+      "done": true,
+      "category": "Tasks for Today (2026-03-09)"
+    },
+    {
+      "title": "Build initial Vancouver COI target list with sources",
+      "done": true,
+      "category": "Tasks for Today (2026-03-09)"
+    },
+    {
+      "title": "Execute live outreach block (requires external sending)",
+      "done": false,
+      "category": "Tasks for Today (2026-03-09)"
+    },
+    {
+      "title": "Log outreach/content metrics at end of day",
+      "done": false,
+      "category": "Tasks for Today (2026-03-09)"
+    }
   ],
-  "updatedAt": "2026-03-08T20:20:00Z"
+  "kanban": {
+    "todo": [
+      "Execute live outreach block (requires external sending)",
+      "Log outreach/content metrics at end of day"
+    ],
+    "inProgress": [],
+    "done": [
+      "Read goals + context from brain/",
+      "Generate 3-5 high-leverage tasks aligned to goals",
+      "Create recruiting outreach scripts for week-of execution",
+      "Create content sprint plan for TikTok/IG/YouTube",
+      "Build initial Vancouver COI target list with sources"
+    ]
+  },
+  "updatedAt": "2026-03-09T17:37:57.343Z"
 }

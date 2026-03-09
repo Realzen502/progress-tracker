@@ -26,6 +26,29 @@
   color: #a8b4dc;
 }
 
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.tab {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #27345f;
+  border-radius: 8px;
+  color: #a8b4dc;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tabActive {
+  background: #1a2750;
+  color: #e7ecff;
+  border-color: #3a4d8a;
+}
+
 .section {
   margin-top: 18px;
 }
@@ -57,6 +80,13 @@
   gap: 8px;
 }
 
+.kanbanGrid {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .footer {
   margin-top: 24px;
   display: flex;
@@ -75,6 +105,10 @@
 
   .card h1 {
     font-size: 1.5rem;
+  }
+
+  .kanbanGrid {
+    grid-template-columns: 1fr;
   }
 
   .footer {
