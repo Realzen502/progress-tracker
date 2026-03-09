@@ -5,6 +5,12 @@ import path from "node:path";
 const workspaceRoot = path.resolve(process.cwd(), "..");
 const kanbanPath = path.join(workspaceRoot, "brain", "kanban", "today.md");
 const projectsDir = path.join(workspaceRoot, "brain", "projects");
+const lessonsDir = path.join(
+  workspaceRoot,
+  "brain",
+  "learning",
+  "real-estate-recruiting",
+);
 const progressPath = path.join(process.cwd(), "data", "progress.json");
 const docsDir = path.join(process.cwd(), "data", "docs");
 
@@ -20,6 +26,7 @@ const defaultData = {
     done: [],
   },
   docs: [],
+  lessons: [],
   taskDocs: {},
 };
 
@@ -46,6 +53,11 @@ const prettifyTitle = (sourcePath) =>
     .basename(sourcePath, path.extname(sourcePath))
     .replace(/[-_]+/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase());
+
+const extractMarkdownTitle = (content) => {
+  const headingMatch = content.match(/^#\s+(.+)$/m);
+  return headingMatch?.[1]?.trim() || "";
+};
 
 function parseKanban(markdown) {
   const lines = markdown.split(/\r?\n/);
@@ -124,6 +136,18 @@ function findRelevantProjectDocs(tasks, projectDocPaths) {
   return relevant;
 }
 
+async function writeDocPayload({ id, title, sourcePath, content, updatedAt }) {
+  const payload = {
+    title,
+    sourcePath,
+    content,
+    updatedAt,
+  };
+
+  await fs.mkdir(docsDir, { recursive: true });
+  await fs.writeFile(path.join(docsDir, `${id}.json`), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+}
+
 async function buildDocs(tasks) {
   const explicitTaskPaths = new Set();
   for (const task of tasks) {
@@ -150,20 +174,18 @@ async function buildDocs(tasks) {
     }
 
     const id = toStableId(sourcePath);
-    const title = prettifyTitle(sourcePath);
+    const title = extractMarkdownTitle(content) || prettifyTitle(sourcePath);
     const href = `/docs/${id}`;
 
     docs.push({ id, title, sourcePath, href });
 
-    const payload = {
+    await writeDocPayload({
+      id,
       title,
       sourcePath,
       content,
       updatedAt: new Date().toISOString(),
-    };
-
-    await fs.mkdir(docsDir, { recursive: true });
-    await fs.writeFile(path.join(docsDir, `${id}.json`), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+    });
 
     for (const task of tasks) {
       if (extractTaskPaths(task.title).includes(sourcePath)) {
@@ -180,9 +202,75 @@ async function buildDocs(tasks) {
   }
 
   docs.sort((a, b) => a.title.localeCompare(b.title));
+  return { docs, taskDocs };
+}
 
-  // Remove stale exported docs.
-  const keep = new Set(docs.map((doc) => `${doc.id}.json`));
+function extractLessonDay(fileName) {
+  const dayMatch = fileName.match(/^day-(\d+)-/i);
+  if (!dayMatch) return null;
+  return Number.parseInt(dayMatch[1], 10);
+}
+
+async function buildLessons() {
+  let entries = [];
+  try {
+    entries = await fs.readdir(lessonsDir, { withFileTypes: true });
+  } catch {
+    return { lessons: [], lessonDocIds: [] };
+  }
+
+  const lessons = [];
+  const lessonDocIds = [];
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !/^day-\d+.*\.md$/i.test(entry.name)) continue;
+
+    const day = extractLessonDay(entry.name);
+    if (day === null) continue;
+
+    const sourcePath = path.posix.join(
+      "brain",
+      "learning",
+      "real-estate-recruiting",
+      entry.name,
+    );
+    const absolutePath = path.join(lessonsDir, entry.name);
+
+    let content;
+    let stat;
+    try {
+      content = await fs.readFile(absolutePath, "utf8");
+      stat = await fs.stat(absolutePath);
+    } catch {
+      continue;
+    }
+
+    const id = toStableId(sourcePath);
+    const extractedTitle = extractMarkdownTitle(content);
+    const title = extractedTitle || prettifyTitle(sourcePath);
+    const href = `/docs/${id}`;
+    const updatedAt = stat?.mtime ? stat.mtime.toISOString() : new Date().toISOString();
+
+    lessons.push({ id, day, title, sourcePath, href, updatedAt });
+    lessonDocIds.push(id);
+
+    await writeDocPayload({
+      id,
+      title: `Day ${day}: ${title}`,
+      sourcePath,
+      content,
+      updatedAt,
+    });
+  }
+
+  lessons.sort((a, b) => b.day - a.day);
+
+  return { lessons, lessonDocIds };
+}
+
+async function cleanupStaleDocs(keepIds) {
+  const keep = new Set(keepIds.map((id) => `${id}.json`));
+
   try {
     const existing = await fs.readdir(docsDir, { withFileTypes: true });
     for (const entry of existing) {
@@ -193,8 +281,6 @@ async function buildDocs(tasks) {
   } catch {
     // noop
   }
-
-  return { docs, taskDocs };
 }
 
 async function run() {
@@ -209,6 +295,9 @@ async function run() {
 
   const { tasks, kanban } = parseKanban(markdown);
   const { docs, taskDocs } = await buildDocs(tasks);
+  const { lessons, lessonDocIds } = await buildLessons();
+
+  await cleanupStaleDocs([...docs.map((doc) => doc.id), ...lessonDocIds]);
 
   const output = {
     ...defaultData,
@@ -216,13 +305,16 @@ async function run() {
     tasks,
     kanban,
     docs,
+    lessons,
     taskDocs,
     updatedBy: "Kanban Sync",
     updatedAt: new Date().toISOString(),
   };
 
   await fs.writeFile(progressPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
-  console.log(`Synced ${tasks.length} tasks and ${docs.length} docs from ${kanbanPath}`);
+  console.log(
+    `Synced ${tasks.length} tasks, ${docs.length} docs, and ${lessons.length} lessons from brain/`,
+  );
 }
 
 run().catch((error) => {

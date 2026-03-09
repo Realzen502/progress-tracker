@@ -33,12 +33,14 @@ export default async function DocPage({
   const { id } = await params;
   const doc = await loadDoc(id);
 
+  const isLesson = doc?.sourcePath?.includes("brain/learning/real-estate-recruiting/day-");
+
   return (
     <main className={styles.page}>
       <section className={styles.card}>
         <p>
-          <Link href="/?tab=kanban" className={styles.docLink}>
-            ← Back to Kanban
+          <Link href={isLesson ? "/?tab=lessons" : "/?tab=kanban"} className={styles.docLink}>
+            {isLesson ? "← Back to Lessons" : "← Back to Kanban"}
           </Link>
         </p>
 

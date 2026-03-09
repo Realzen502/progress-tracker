@@ -61,44 +61,99 @@
   "docs": [
     {
       "id": "brain-projects-coi-target-list-vancouver-md",
-      "title": "Coi Target List Vancouver",
+      "title": "COI Target List — Vancouver (Initial Research)",
       "sourcePath": "brain/projects/coi-target-list-vancouver.md",
       "href": "/docs/brain-projects-coi-target-list-vancouver-md"
     },
     {
       "id": "brain-projects-content-sprint-2026-03-09-md",
-      "title": "Content Sprint 2026 03 09",
+      "title": "Content Sprint — Week of 2026-03-09",
       "sourcePath": "brain/projects/content-sprint-2026-03-09.md",
       "href": "/docs/brain-projects-content-sprint-2026-03-09-md"
     },
     {
-      "id": "brain-projects-recruiting-cadence-md",
-      "title": "Recruiting Cadence",
-      "sourcePath": "brain/projects/recruiting-cadence.md",
-      "href": "/docs/brain-projects-recruiting-cadence-md"
-    },
-    {
       "id": "brain-projects-recruiting-outreach-scripts-md",
-      "title": "Recruiting Outreach Scripts",
+      "title": "Recruiting Outreach Scripts — Week of 2026-03-09",
       "sourcePath": "brain/projects/recruiting-outreach-scripts.md",
       "href": "/docs/brain-projects-recruiting-outreach-scripts-md"
     },
     {
       "id": "brain-projects-weekend-content-drafts-md",
-      "title": "Weekend Content Drafts",
+      "title": "Weekend Content Drafts — March 7-8, 2026",
       "sourcePath": "brain/projects/weekend-content-drafts.md",
       "href": "/docs/brain-projects-weekend-content-drafts-md"
     },
     {
       "id": "brain-projects-weekly-content-plan-md",
-      "title": "Weekly Content Plan",
+      "title": "Weekly Content Plan — March 3-9, 2026",
       "sourcePath": "brain/projects/weekly-content-plan.md",
       "href": "/docs/brain-projects-weekly-content-plan-md"
+    },
+    {
+      "id": "brain-projects-recruiting-cadence-md",
+      "title": "Weekly Recruiting Cadence",
+      "sourcePath": "brain/projects/recruiting-cadence.md",
+      "href": "/docs/brain-projects-recruiting-cadence-md"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "brain-learning-real-estate-recruiting-day-06-cold-outreach-md",
+      "day": 6,
+      "title": "Day 06 — Cold Outreach",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-06-cold-outreach.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-06-cold-outreach-md",
+      "updatedAt": "2026-03-09T16:00:10.894Z"
+    },
+    {
+      "id": "brain-learning-real-estate-recruiting-day-05-value-proposition-md",
+      "day": 5,
+      "title": "Day 05 Value Proposition",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-05-value-proposition.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-05-value-proposition-md",
+      "updatedAt": "2026-03-08T16:02:16.167Z"
+    },
+    {
+      "id": "brain-learning-real-estate-recruiting-day-04-value-proposition-md",
+      "day": 4,
+      "title": "Day 04 Value Proposition",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-04-value-proposition.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-04-value-proposition-md",
+      "updatedAt": "2026-03-07T17:02:30.540Z"
+    },
+    {
+      "id": "brain-learning-real-estate-recruiting-day-03-who-to-recruit-md",
+      "day": 3,
+      "title": "Day 3: Who to Recruit",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-03-who-to-recruit.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-03-who-to-recruit-md",
+      "updatedAt": "2026-03-06T17:01:14.338Z"
+    },
+    {
+      "id": "brain-learning-real-estate-recruiting-day-02-recruiting-mindset-md",
+      "day": 2,
+      "title": "Day 2 — The Recruiting Mindset",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-02-recruiting-mindset.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-02-recruiting-mindset-md",
+      "updatedAt": "2026-03-05T18:02:16.132Z"
+    },
+    {
+      "id": "brain-learning-real-estate-recruiting-day-01-why-recruiting-matters-md",
+      "day": 1,
+      "title": "Day 1: Why Recruiting Matters",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-01-why-recruiting-matters.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-01-why-recruiting-matters-md",
+      "updatedAt": "2026-03-05T17:27:23.440Z"
     }
   ],
   "taskDocs": {
     "Build initial Vancouver COI target list with sources": [
       "brain-projects-coi-target-list-vancouver-md"
+    ],
+    "Create recruiting outreach scripts for week-of execution": [
+      "brain-projects-content-sprint-2026-03-09-md",
+      "brain-projects-recruiting-cadence-md",
+      "brain-projects-recruiting-outreach-scripts-md"
     ],
     "Create content sprint plan for TikTok/IG/YouTube": [
       "brain-projects-content-sprint-2026-03-09-md",
@@ -111,13 +166,9 @@
       "brain-projects-weekend-content-drafts-md",
       "brain-projects-weekly-content-plan-md"
     ],
-    "Create recruiting outreach scripts for week-of execution": [
-      "brain-projects-recruiting-cadence-md",
-      "brain-projects-recruiting-outreach-scripts-md"
-    ],
     "Execute live outreach block (requires external sending)": [
       "brain-projects-recruiting-outreach-scripts-md"
     ]
   },
-  "updatedAt": "2026-03-09T17:53:44.983Z"
+  "updatedAt": "2026-03-09T18:10:36.204Z"
 }

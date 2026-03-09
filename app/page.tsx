@@ -18,6 +18,15 @@ type DocMeta = {
   href: string;
 };
 
+type LessonMeta = {
+  id: string;
+  day: number;
+  title: string;
+  sourcePath: string;
+  href: string;
+  updatedAt?: string;
+};
+
 type ProgressData = {
   title: string;
   subtitle: string;
@@ -31,6 +40,7 @@ type ProgressData = {
     done?: string[];
   };
   docs?: DocMeta[];
+  lessons?: LessonMeta[];
   taskDocs?: Record<string, string[]>;
 };
 
@@ -79,7 +89,9 @@ export default async function Home({
 }) {
   const data = await loadProgress();
   const params = await searchParams;
-  const activeTab = params?.tab === "kanban" ? "kanban" : "dashboard";
+  const requestedTab = params?.tab;
+  const activeTab =
+    requestedTab === "kanban" || requestedTab === "lessons" ? requestedTab : "dashboard";
 
   const completed = data.tasks.filter((t) => t.done).length;
   const total = data.tasks.length;
@@ -91,6 +103,7 @@ export default async function Home({
   };
 
   const docs = data.docs || [];
+  const lessons = data.lessons || [];
   const docById = new Map(docs.map((doc) => [doc.id, doc]));
   const docsByTask: Record<string, DocMeta[]> = {};
 
@@ -121,6 +134,12 @@ export default async function Home({
           >
             Kanban
           </Link>
+          <Link
+            href="/?tab=lessons"
+            className={`${styles.tab} ${activeTab === "lessons" ? styles.tabActive : ""}`}
+          >
+            Lessons
+          </Link>
         </div>
 
         {activeTab === "dashboard" ? (
@@ -150,7 +169,9 @@ export default async function Home({
               ))}
             </div>
           </>
-        ) : (
+        ) : null}
+
+        {activeTab === "kanban" ? (
           <>
             <div className={styles.kanbanGrid}>
               <div className={styles.group}>
@@ -187,7 +208,29 @@ export default async function Home({
               )}
             </div>
           </>
-        )}
+        ) : null}
+
+        {activeTab === "lessons" ? (
+          <div className={styles.section}>
+            <h2>Lessons</h2>
+            {lessons.length === 0 ? (
+              <p className={styles.sub}>No lessons synced yet.</p>
+            ) : (
+              <ul className={styles.docsList}>
+                {lessons.map((lesson) => (
+                  <li key={lesson.id}>
+                    <Link href={lesson.href} className={styles.docLink}>
+                      Day {lesson.day}: {lesson.title}
+                    </Link>
+                    <span className={styles.docMeta}>
+                      Updated: {new Date(lesson.updatedAt || "").toLocaleDateString("en-US")}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ) : null}
 
         <div className={styles.footer}>
           <span>Completed: {completed}</span>
