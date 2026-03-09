@@ -58,5 +58,66 @@
       "Build initial Vancouver COI target list with sources"
     ]
   },
-  "updatedAt": "2026-03-09T17:37:57.343Z"
+  "docs": [
+    {
+      "id": "brain-projects-coi-target-list-vancouver-md",
+      "title": "Coi Target List Vancouver",
+      "sourcePath": "brain/projects/coi-target-list-vancouver.md",
+      "href": "/docs/brain-projects-coi-target-list-vancouver-md"
+    },
+    {
+      "id": "brain-projects-content-sprint-2026-03-09-md",
+      "title": "Content Sprint 2026 03 09",
+      "sourcePath": "brain/projects/content-sprint-2026-03-09.md",
+      "href": "/docs/brain-projects-content-sprint-2026-03-09-md"
+    },
+    {
+      "id": "brain-projects-recruiting-cadence-md",
+      "title": "Recruiting Cadence",
+      "sourcePath": "brain/projects/recruiting-cadence.md",
+      "href": "/docs/brain-projects-recruiting-cadence-md"
+    },
+    {
+      "id": "brain-projects-recruiting-outreach-scripts-md",
+      "title": "Recruiting Outreach Scripts",
+      "sourcePath": "brain/projects/recruiting-outreach-scripts.md",
+      "href": "/docs/brain-projects-recruiting-outreach-scripts-md"
+    },
+    {
+      "id": "brain-projects-weekend-content-drafts-md",
+      "title": "Weekend Content Drafts",
+      "sourcePath": "brain/projects/weekend-content-drafts.md",
+      "href": "/docs/brain-projects-weekend-content-drafts-md"
+    },
+    {
+      "id": "brain-projects-weekly-content-plan-md",
+      "title": "Weekly Content Plan",
+      "sourcePath": "brain/projects/weekly-content-plan.md",
+      "href": "/docs/brain-projects-weekly-content-plan-md"
+    }
+  ],
+  "taskDocs": {
+    "Build initial Vancouver COI target list with sources": [
+      "brain-projects-coi-target-list-vancouver-md"
+    ],
+    "Create content sprint plan for TikTok/IG/YouTube": [
+      "brain-projects-content-sprint-2026-03-09-md",
+      "brain-projects-weekend-content-drafts-md",
+      "brain-projects-weekly-content-plan-md"
+    ],
+    "Log outreach/content metrics at end of day": [
+      "brain-projects-content-sprint-2026-03-09-md",
+      "brain-projects-recruiting-outreach-scripts-md",
+      "brain-projects-weekend-content-drafts-md",
+      "brain-projects-weekly-content-plan-md"
+    ],
+    "Create recruiting outreach scripts for week-of execution": [
+      "brain-projects-recruiting-cadence-md",
+      "brain-projects-recruiting-outreach-scripts-md"
+    ],
+    "Execute live outreach block (requires external sending)": [
+      "brain-projects-recruiting-outreach-scripts-md"
+    ]
+  },
+  "updatedAt": "2026-03-09T17:53:44.983Z"
 }

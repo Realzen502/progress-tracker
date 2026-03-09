@@ -11,6 +11,13 @@ type Task = {
   category?: string;
 };
 
+type DocMeta = {
+  id: string;
+  title: string;
+  sourcePath: string;
+  href: string;
+};
+
 type ProgressData = {
   title: string;
   subtitle: string;
@@ -23,6 +30,8 @@ type ProgressData = {
     inProgress?: string[];
     done?: string[];
   };
+  docs?: DocMeta[];
+  taskDocs?: Record<string, string[]>;
 };
 
 async function loadProgress(): Promise<ProgressData> {
@@ -38,6 +47,29 @@ function groupTasks(tasks: Task[]) {
     grouped.set(key, [...(grouped.get(key) || []), task]);
   }
   return grouped;
+}
+
+function renderTaskWithDoc(
+  statusIcon: string,
+  task: string,
+  docsByTask: Record<string, DocMeta[]>,
+) {
+  const linkedDocs = docsByTask[task] || [];
+
+  return (
+    <li key={`${statusIcon}-${task}`}>
+      {statusIcon} {task}
+      {linkedDocs.length > 0 ? (
+        <div className={styles.taskLinks}>
+          {linkedDocs.map((doc) => (
+            <Link key={`${task}-${doc.id}`} href={doc.href} className={styles.docLink}>
+              {doc.title}
+            </Link>
+          ))}
+        </div>
+      ) : null}
+    </li>
+  );
 }
 
 export default async function Home({
@@ -57,6 +89,16 @@ export default async function Home({
     inProgress: data.kanban?.inProgress || [],
     done: data.kanban?.done || [],
   };
+
+  const docs = data.docs || [];
+  const docById = new Map(docs.map((doc) => [doc.id, doc]));
+  const docsByTask: Record<string, DocMeta[]> = {};
+
+  for (const [taskTitle, ids] of Object.entries(data.taskDocs || {})) {
+    docsByTask[taskTitle] = ids
+      .map((id) => docById.get(id))
+      .filter((doc): doc is DocMeta => Boolean(doc));
+  }
 
   return (
     <main className={styles.page}>
@@ -109,32 +151,42 @@ export default async function Home({
             </div>
           </>
         ) : (
-          <div className={styles.kanbanGrid}>
-            <div className={styles.group}>
-              <h3>To Do</h3>
-              <ul>
-                {kanban.todo.map((task) => (
-                  <li key={`todo-${task}`}>⬜ {task}</li>
-                ))}
-              </ul>
+          <>
+            <div className={styles.kanbanGrid}>
+              <div className={styles.group}>
+                <h3>To Do</h3>
+                <ul>{kanban.todo.map((task) => renderTaskWithDoc("⬜", task, docsByTask))}</ul>
+              </div>
+              <div className={styles.group}>
+                <h3>In Progress</h3>
+                <ul>
+                  {kanban.inProgress.map((task) => renderTaskWithDoc("🔄", task, docsByTask))}
+                </ul>
+              </div>
+              <div className={styles.group}>
+                <h3>Done</h3>
+                <ul>{kanban.done.map((task) => renderTaskWithDoc("✅", task, docsByTask))}</ul>
+              </div>
             </div>
-            <div className={styles.group}>
-              <h3>In Progress</h3>
-              <ul>
-                {kanban.inProgress.map((task) => (
-                  <li key={`inprogress-${task}`}>🔄 {task}</li>
-                ))}
-              </ul>
+
+            <div className={styles.section}>
+              <h2>Docs</h2>
+              {docs.length === 0 ? (
+                <p className={styles.sub}>No synced docs yet.</p>
+              ) : (
+                <ul className={styles.docsList}>
+                  {docs.map((doc) => (
+                    <li key={doc.id}>
+                      <Link href={doc.href} className={styles.docLink}>
+                        {doc.title}
+                      </Link>
+                      <span className={styles.docMeta}>{doc.sourcePath}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-            <div className={styles.group}>
-              <h3>Done</h3>
-              <ul>
-                {kanban.done.map((task) => (
-                  <li key={`done-${task}`}>✅ {task}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </>
         )}
 
         <div className={styles.footer}>

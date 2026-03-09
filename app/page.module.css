@@ -80,6 +80,44 @@
   gap: 8px;
 }
 
+.taskLinks {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.docLink {
+  color: #8bc2ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.docsList {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.docMeta {
+  display: block;
+  margin-top: 2px;
+  color: #8ca0d2;
+  font-size: 0.85rem;
+}
+
+.docContent {
+  white-space: pre-wrap;
+  background: #0e1630;
+  border: 1px solid #27345f;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 12px 0 0;
+  max-height: 65vh;
+  overflow: auto;
+}
+
 .kanbanGrid {
   margin-top: 16px;
   display: grid;
