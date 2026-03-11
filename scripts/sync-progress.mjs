@@ -27,6 +27,7 @@ const defaultData = {
   },
   docs: [],
   lessons: [],
+  dailyRecruitingTip: null,
   taskDocs: {},
 };
 
@@ -211,6 +212,18 @@ function extractLessonDay(fileName) {
   return Number.parseInt(dayMatch[1], 10);
 }
 
+function extractDailyTip(content) {
+  const keyPointMatch = content.match(/^\s*1\.\s+(.+)$/m);
+  if (keyPointMatch?.[1]) return keyPointMatch[1].trim();
+
+  const paragraphMatch = content
+    .split(/\r?\n\r?\n/)
+    .map((block) => block.trim())
+    .find((block) => block && !block.startsWith("#") && !block.startsWith("##"));
+
+  return paragraphMatch || "";
+}
+
 async function buildLessons() {
   let entries = [];
   try {
@@ -265,7 +278,27 @@ async function buildLessons() {
 
   lessons.sort((a, b) => b.day - a.day);
 
-  return { lessons, lessonDocIds };
+  const latestLesson = lessons[0];
+  let dailyRecruitingTip = null;
+
+  if (latestLesson) {
+    try {
+      const latestContent = await fs.readFile(path.join(workspaceRoot, latestLesson.sourcePath), "utf8");
+      const tip = extractDailyTip(latestContent);
+      dailyRecruitingTip = {
+        lessonId: latestLesson.id,
+        day: latestLesson.day,
+        title: latestLesson.title,
+        tip,
+        href: latestLesson.href,
+        updatedAt: latestLesson.updatedAt,
+      };
+    } catch {
+      dailyRecruitingTip = null;
+    }
+  }
+
+  return { lessons, lessonDocIds, dailyRecruitingTip };
 }
 
 async function cleanupStaleDocs(keepIds) {
@@ -295,7 +328,7 @@ async function run() {
 
   const { tasks, kanban } = parseKanban(markdown);
   const { docs, taskDocs } = await buildDocs(tasks);
-  const { lessons, lessonDocIds } = await buildLessons();
+  const { lessons, lessonDocIds, dailyRecruitingTip } = await buildLessons();
 
   await cleanupStaleDocs([...docs.map((doc) => doc.id), ...lessonDocIds]);
 
@@ -306,6 +339,7 @@ async function run() {
     kanban,
     docs,
     lessons,
+    dailyRecruitingTip,
     taskDocs,
     updatedBy: "Kanban Sync",
     updatedAt: new Date().toISOString(),

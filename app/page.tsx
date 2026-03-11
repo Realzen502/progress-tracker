@@ -27,6 +27,15 @@ type LessonMeta = {
   updatedAt?: string;
 };
 
+type DailyRecruitingTip = {
+  lessonId: string;
+  day: number;
+  title: string;
+  tip: string;
+  href: string;
+  updatedAt?: string;
+};
+
 type ProgressData = {
   title: string;
   subtitle: string;
@@ -41,6 +50,7 @@ type ProgressData = {
   };
   docs?: DocMeta[];
   lessons?: LessonMeta[];
+  dailyRecruitingTip?: DailyRecruitingTip | null;
   taskDocs?: Record<string, string[]>;
 };
 
@@ -104,6 +114,7 @@ export default async function Home({
 
   const docs = data.docs || [];
   const lessons = data.lessons || [];
+  const dailyRecruitingTip = data.dailyRecruitingTip;
   const docById = new Map(docs.map((doc) => [doc.id, doc]));
   const docsByTask: Record<string, DocMeta[]> = {};
 
@@ -144,6 +155,19 @@ export default async function Home({
 
         {activeTab === "dashboard" ? (
           <>
+            {dailyRecruitingTip?.tip ? (
+              <div className={`${styles.section} ${styles.tipCard}`}>
+                <div className={styles.tipHeader}>
+                  <h2>Today&apos;s Recruiting Tip</h2>
+                  <span className={styles.tipBadge}>Day {dailyRecruitingTip.day}</span>
+                </div>
+                <p className={styles.tipText}>{dailyRecruitingTip.tip}</p>
+                <Link href={dailyRecruitingTip.href} className={styles.docLink}>
+                  Read lesson: {dailyRecruitingTip.title}
+                </Link>
+              </div>
+            ) : null}
+
             <div className={styles.section}>
               <h2>Goals</h2>
               <ul>
@@ -173,6 +197,19 @@ export default async function Home({
 
         {activeTab === "kanban" ? (
           <>
+            {dailyRecruitingTip?.tip ? (
+              <div className={`${styles.section} ${styles.tipCard}`}>
+                <div className={styles.tipHeader}>
+                  <h2>Today&apos;s Recruiting Tip</h2>
+                  <span className={styles.tipBadge}>Day {dailyRecruitingTip.day}</span>
+                </div>
+                <p className={styles.tipText}>{dailyRecruitingTip.tip}</p>
+                <Link href={dailyRecruitingTip.href} className={styles.docLink}>
+                  Read lesson: {dailyRecruitingTip.title}
+                </Link>
+              </div>
+            ) : null}
+
             <div className={styles.kanbanGrid}>
               <div className={styles.group}>
                 <h3>To Do</h3>

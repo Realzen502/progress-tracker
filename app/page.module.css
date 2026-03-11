@@ -100,6 +100,41 @@
   gap: 10px;
 }
 
+.tipCard {
+  margin-top: 18px;
+  padding: 16px;
+  background: linear-gradient(180deg, #132246 0%, #0f1a36 100%);
+  border: 1px solid #36508f;
+  border-radius: 12px;
+}
+
+.tipHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.tipBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #1d3267;
+  color: #cfe0ff;
+  border: 1px solid #4464b0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tipText {
+  margin: 0 0 10px;
+  color: #eef4ff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .docMeta {
   display: block;
   margin-top: 2px;
