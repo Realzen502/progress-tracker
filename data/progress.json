@@ -200,6 +200,14 @@
   ],
   "lessons": [
     {
+      "id": "brain-learning-real-estate-recruiting-day-12-compensation-structures-md",
+      "day": 12,
+      "title": "Day 12 — Compensation Structures",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-12-compensation-structures.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-12-compensation-structures-md",
+      "updatedAt": "2026-03-15T16:00:16.456Z"
+    },
+    {
       "id": "brain-learning-real-estate-recruiting-day-11-the-presentation-md",
       "day": 11,
       "title": "Day 11 — The Presentation",
@@ -289,12 +297,12 @@
     }
   ],
   "dailyRecruitingTip": {
-    "lessonId": "brain-learning-real-estate-recruiting-day-11-the-presentation-md",
-    "day": 11,
-    "title": "Day 11 — The Presentation",
-    "tip": "**Lead with outcomes, not features**: Show how your brokerage helps agents close more deals, earn more, and reduce operational drag.",
-    "href": "/docs/brain-learning-real-estate-recruiting-day-11-the-presentation-md",
-    "updatedAt": "2026-03-14T16:00:13.425Z"
+    "lessonId": "brain-learning-real-estate-recruiting-day-12-compensation-structures-md",
+    "day": 12,
+    "title": "Day 12 — Compensation Structures",
+    "tip": "",
+    "href": "/docs/brain-learning-real-estate-recruiting-day-12-compensation-structures-md",
+    "updatedAt": "2026-03-15T16:00:16.456Z"
   },
   "taskDocs": {
     "Build outreach target queue for immediate send blocks": [
@@ -347,5 +355,5 @@
       "brain-projects-today-execution-pack-2026-03-14-md"
     ]
   },
-  "updatedAt": "2026-03-14T22:00:32.244Z"
+  "updatedAt": "2026-03-15T16:00:22.085Z"
 }
