@@ -11,64 +11,64 @@
     {
       "title": "Review goals, active projects, recent activity, and morning-automation constraints",
       "done": true,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Generate 3-5 high-value tasks in revenue-first order",
       "done": true,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Build today execution support pack (scripts + post draft + conversion prompts)",
       "done": true,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Build outreach target queue for immediate send blocks",
       "done": true,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Build daily scorecard for measurable execution",
       "done": true,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Send 12 warm lead follow-ups (buyer/seller pipeline)",
       "done": false,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Send 6 past-client sphere check-ins (referral activation)",
       "done": false,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
-      "title": "Publish 1 consumer-facing Vancouver market-clarity post",
+      "title": "Publish 1 consumer-facing Vancouver seller-readiness post",
       "done": false,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Send 3 COI intros and book 1 coffee chat",
       "done": false,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "End-of-day: update scorecard + pipeline movement",
       "done": false,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     },
     {
       "title": "Optional: send 2 warm recruiting maintenance follow-ups (15-min cap)",
       "done": false,
-      "category": "Tasks for Today (2026-03-25)"
+      "category": "Tasks for Today (2026-03-26)"
     }
   ],
   "kanban": {
     "todo": [
       "Send 12 warm lead follow-ups (buyer/seller pipeline)",
       "Send 6 past-client sphere check-ins (referral activation)",
-      "Publish 1 consumer-facing Vancouver market-clarity post",
+      "Publish 1 consumer-facing Vancouver seller-readiness post",
       "Send 3 COI intros and book 1 coffee chat",
       "End-of-day: update scorecard + pipeline movement",
       "Optional: send 2 warm recruiting maintenance follow-ups (15-min cap)"
@@ -186,6 +186,12 @@
       "href": "/docs/brain-projects-daily-scorecard-2026-03-25-md"
     },
     {
+      "id": "brain-projects-daily-scorecard-2026-03-26-md",
+      "title": "Daily Scorecard — 2026-03-26",
+      "sourcePath": "brain/projects/daily-scorecard-2026-03-26.md",
+      "href": "/docs/brain-projects-daily-scorecard-2026-03-26-md"
+    },
+    {
       "id": "brain-projects-outreach-target-queue-2026-03-11-md",
       "title": "Outreach Target Queue — 2026-03-11",
       "sourcePath": "brain/projects/outreach-target-queue-2026-03-11.md",
@@ -274,6 +280,12 @@
       "title": "Outreach Target Queue — 2026-03-25",
       "sourcePath": "brain/projects/outreach-target-queue-2026-03-25.md",
       "href": "/docs/brain-projects-outreach-target-queue-2026-03-25-md"
+    },
+    {
+      "id": "brain-projects-outreach-target-queue-2026-03-26-md",
+      "title": "Outreach Target Queue — 2026-03-26",
+      "sourcePath": "brain/projects/outreach-target-queue-2026-03-26.md",
+      "href": "/docs/brain-projects-outreach-target-queue-2026-03-26-md"
     },
     {
       "id": "brain-projects-recruiting-outreach-scripts-md",
@@ -384,6 +396,12 @@
       "href": "/docs/brain-projects-today-execution-pack-2026-03-25-md"
     },
     {
+      "id": "brain-projects-today-execution-pack-2026-03-26-md",
+      "title": "Today Execution Pack — 2026-03-26",
+      "sourcePath": "brain/projects/today-execution-pack-2026-03-26.md",
+      "href": "/docs/brain-projects-today-execution-pack-2026-03-26-md"
+    },
+    {
       "id": "brain-projects-recruiting-cadence-md",
       "title": "Weekly Recruiting Cadence",
       "sourcePath": "brain/projects/recruiting-cadence.md",
@@ -391,6 +409,14 @@
     }
   ],
   "lessons": [
+    {
+      "id": "brain-learning-real-estate-recruiting-day-24-team-recruiting-md",
+      "day": 24,
+      "title": "Day 24 — Team Recruiting",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-24-team-recruiting.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-24-team-recruiting-md",
+      "updatedAt": "2026-03-27T16:00:24.682Z"
+    },
     {
       "id": "brain-learning-real-estate-recruiting-day-23-competitive-recruiting-md",
       "day": 23,
@@ -577,12 +603,12 @@
     }
   ],
   "dailyRecruitingTip": {
-    "lessonId": "brain-learning-real-estate-recruiting-day-23-competitive-recruiting-md",
-    "day": 23,
-    "title": "Day 23 — Competitive Recruiting",
+    "lessonId": "brain-learning-real-estate-recruiting-day-24-team-recruiting-md",
+    "day": 24,
+    "title": "Day 24 — Team Recruiting",
     "tip": "",
-    "href": "/docs/brain-learning-real-estate-recruiting-day-23-competitive-recruiting-md",
-    "updatedAt": "2026-03-26T16:00:17.502Z"
+    "href": "/docs/brain-learning-real-estate-recruiting-day-24-team-recruiting-md",
+    "updatedAt": "2026-03-27T16:00:24.682Z"
   },
   "taskDocs": {
     "Build outreach target queue for immediate send blocks": [
@@ -602,9 +628,10 @@
       "brain-projects-outreach-target-queue-2026-03-23-md",
       "brain-projects-outreach-target-queue-2026-03-24-md",
       "brain-projects-outreach-target-queue-2026-03-25-md",
+      "brain-projects-outreach-target-queue-2026-03-26-md",
       "brain-projects-recruiting-outreach-scripts-md"
     ],
-    "Publish 1 consumer-facing Vancouver market-clarity post": [
+    "Publish 1 consumer-facing Vancouver seller-readiness post": [
       "brain-projects-coi-target-list-vancouver-md"
     ],
     "Send 3 COI intros and book 1 coffee chat": [
@@ -627,6 +654,7 @@
       "brain-projects-daily-scorecard-2026-03-23-md",
       "brain-projects-daily-scorecard-2026-03-24-md",
       "brain-projects-daily-scorecard-2026-03-25-md",
+      "brain-projects-daily-scorecard-2026-03-26-md",
       "brain-projects-today-execution-pack-2026-03-09-md",
       "brain-projects-today-execution-pack-2026-03-10-md",
       "brain-projects-today-execution-pack-2026-03-11-md",
@@ -643,7 +671,8 @@
       "brain-projects-today-execution-pack-2026-03-22-md",
       "brain-projects-today-execution-pack-2026-03-23-md",
       "brain-projects-today-execution-pack-2026-03-24-md",
-      "brain-projects-today-execution-pack-2026-03-25-md"
+      "brain-projects-today-execution-pack-2026-03-25-md",
+      "brain-projects-today-execution-pack-2026-03-26-md"
     ],
     "End-of-day: update scorecard + pipeline movement": [
       "brain-projects-daily-scorecard-2026-03-10-md",
@@ -661,7 +690,8 @@
       "brain-projects-daily-scorecard-2026-03-22-md",
       "brain-projects-daily-scorecard-2026-03-23-md",
       "brain-projects-daily-scorecard-2026-03-24-md",
-      "brain-projects-daily-scorecard-2026-03-25-md"
+      "brain-projects-daily-scorecard-2026-03-25-md",
+      "brain-projects-daily-scorecard-2026-03-26-md"
     ],
     "Optional: send 2 warm recruiting maintenance follow-ups (15-min cap)": [
       "brain-projects-recruiting-cadence-md",
@@ -685,8 +715,9 @@
       "brain-projects-today-execution-pack-2026-03-22-md",
       "brain-projects-today-execution-pack-2026-03-23-md",
       "brain-projects-today-execution-pack-2026-03-24-md",
-      "brain-projects-today-execution-pack-2026-03-25-md"
+      "brain-projects-today-execution-pack-2026-03-25-md",
+      "brain-projects-today-execution-pack-2026-03-26-md"
     ]
   },
-  "updatedAt": "2026-03-26T16:00:26.549Z"
+  "updatedAt": "2026-03-27T16:00:33.652Z"
 }
