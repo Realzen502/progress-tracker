@@ -500,6 +500,14 @@
   ],
   "lessons": [
     {
+      "id": "brain-learning-real-estate-recruiting-day-32-your-minimum-daily-standard-md",
+      "day": 32,
+      "title": "Day 32 — Your Minimum Daily Standard",
+      "sourcePath": "brain/learning/real-estate-recruiting/day-32-your-minimum-daily-standard.md",
+      "href": "/docs/brain-learning-real-estate-recruiting-day-32-your-minimum-daily-standard-md",
+      "updatedAt": "2026-04-09T16:00:00.000Z"
+    },
+    {
       "id": "brain-learning-real-estate-recruiting-day-30-your-recruiting-system-md",
       "day": 30,
       "title": "Day 30 — Your Recruiting System",
@@ -741,12 +749,12 @@
     }
   ],
   "dailyRecruitingTip": {
-    "lessonId": "brain-learning-real-estate-recruiting-day-30-your-recruiting-system-md",
-    "day": 30,
-    "title": "Day 30 — Your Recruiting System",
-    "tip": "",
-    "href": "/docs/brain-learning-real-estate-recruiting-day-30-your-recruiting-system-md",
-    "updatedAt": "2026-04-03T00:44:50.179Z"
+    "lessonId": "brain-learning-real-estate-recruiting-day-32-your-minimum-daily-standard-md",
+    "day": 32,
+    "title": "Day 32 — Your Minimum Daily Standard",
+    "tip": "Recruiting breaks down when success only counts on big days. A minimum daily standard keeps your pipeline alive through ordinary weeks, protects momentum, and makes consistency realistic instead of theoretical.",
+    "href": "/docs/brain-learning-real-estate-recruiting-day-32-your-minimum-daily-standard-md",
+    "updatedAt": "2026-04-09T16:00:00.000Z"
   },
   "taskDocs": {
     "Build outreach target queue for immediate send blocks": [
@@ -882,5 +890,5 @@
       "brain-projects-today-execution-pack-2026-04-02-md"
     ]
   },
-  "updatedAt": "2026-04-03T00:46:09.439Z"
+  "updatedAt": "2026-04-09T16:00:00.000Z"
 }
